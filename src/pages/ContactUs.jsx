@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser';
 import { IoIosSend } from 'react-icons/io';
 import { toast } from 'react-toastify';
 import { Oval } from 'react-loader-spinner';
+
 export default function ContactUs() {
 
   const form = useRef(null);
@@ -13,6 +14,7 @@ export default function ContactUs() {
     const storedDark = localStorage.getItem('dark');
     setDarkMode(storedDark === 'true');
   }, []);
+
     const sendEmail = (e) => {
     setSending(true);
     e.preventDefault();
@@ -23,16 +25,15 @@ export default function ContactUs() {
         })
         .then(
             () => {
-                toast.success('sent succesfully')
+                toast.success('sent succesfully', {toastId: 'success-toast', theme: `${darkMode ? 'dark' : 'light'}`})
                 setSending(false)
             },
             () => {
-                toast.error('An error occurred, try again later')
+                toast.error('An error occurred, try again later', {toastId: 'error-toast', theme: `${darkMode ? 'dark' : 'light'}`})
             },
         );
     }
   };
-
 
   return (
     <div onSubmit={sendEmail} className="min-h-[95vh] max-h-fit pt-20" id="contactUs">

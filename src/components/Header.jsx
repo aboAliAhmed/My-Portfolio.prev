@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 export default function Header() {
   const [darkMode, setDarkMode] = useState(false);
@@ -9,7 +9,7 @@ export default function Header() {
     setDarkMode(storedDark === 'true');
   }, []);
 
-  const toggleDarkmode = () => {
+  const toggleDarkMode = () => {
     const updatedDark = !darkMode;
     setDarkMode(updatedDark);
     localStorage.setItem('dark', updatedDark);
@@ -49,7 +49,7 @@ export default function Header() {
         </a>
       </div>
       <button 
-        onClick={() => toggleDarkmode()}
+        onClick={() => toggleDarkMode()}
         className='fixed right-5 top-5'
       >
         {
